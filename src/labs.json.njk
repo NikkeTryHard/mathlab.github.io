@@ -4,6 +4,6 @@ eleventyExcludeFromCollections: true
 ---
 [
 {% for item in collections.labs %}
-{"slug":"{{ item.fileSlug }}","title":"{{ item.data.title or item.fileSlug }}","href":"/lab/{{ item.fileSlug }}.html"}{% if not loop.last %},{% endif %}
+{"slug":"{{ item.fileSlug }}","title":"{{ item.data.title or item.fileSlug }}","href":"lab/{{ item.fileSlug }}.html"}{% if not loop.last %},{% endif %}
 {% endfor %}
 ]

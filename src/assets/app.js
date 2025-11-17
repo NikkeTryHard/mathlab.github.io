@@ -2,7 +2,7 @@ const state = { labs: [], active: null };
 
 async function loadLabs() {
   try {
-    const res = await fetch('/labs.json', { cache: 'no-store' });
+    const res = await fetch('labs.json', { cache: 'no-store' });
     if (!res.ok) throw new Error('labs.json not found');
     state.labs = await res.json();
     renderTabs();
