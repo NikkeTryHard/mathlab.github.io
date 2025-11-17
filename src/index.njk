@@ -9,8 +9,20 @@ eleventyExcludeFromCollections: true
     <nav id="lab-tabs" class="tabs"></nav>
   </aside>
   <main class="content">
+    <header class="topbar">
+      <button id="menuToggle" class="menu-toggle" aria-label="Toggle navigation" aria-controls="lab-tabs" aria-expanded="false">☰</button>
+      <div class="topbar-title">Math Lab</div>
+      <div class="topbar-actions">
+        <select id="themeSelect" class="theme-select" aria-label="Theme selection">
+          <option value="system">System</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </div>
+    </header>
     <div id="content-container" class="content-container"></div>
     <div id="error" class="error" hidden></div>
     <button id="backToTop" class="back-to-top" aria-label="Back to top">▲</button>
   </main>
+  <div id="scrim" class="scrim" hidden></div>
 </div>
