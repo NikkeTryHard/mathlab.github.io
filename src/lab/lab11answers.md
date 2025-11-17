@@ -125,7 +125,8 @@ $$\text{Difference }F(2)-F(0)=-8-0=-8$$
 
 - Let $f(x)=4x^2-2$ on $[-3,-1]$; $\Delta x=\dfrac{2}{n}$; $x_k=-3+\dfrac{2k}{n}$.
 - By the binomial formula $(a+b)^2=a^2+2ab+b^2$,
-  $$\left(-3+\frac{2k}{n}\right)^2=(-3)^2+2(-3)\left(\frac{2k}{n}\right)+\left(\frac{2k}{n}\right)^2=9-\frac{12k}{n}+\frac{4k^2}{n^2}$$
+  Let $a=-3$ and $b=\dfrac{2k}{n}$. Then
+  $$\left(-3+\frac{2k}{n}\right)^2=a^2+2ab+b^2=(-3)^2+2(-3)\left(\frac{2k}{n}\right)+\left(\frac{2k}{n}\right)^2=9-\frac{12k}{n}+\frac{4k^2}{n^2}$$
 - Thus $f(x_k)=4\left(9-\frac{12k}{n}+\frac{4k^2}{n^2}\right)-2=34-\frac{48k}{n}+\frac{16k^2}{n^2}$.
 
 **Scratch Work:**
@@ -209,7 +210,7 @@ Right Riemann sum for $n=4$ on $[0,8]$ uses right endpoints $x=2,4,6,8$, where $
 
 **(d) Exact Area (geometric decomposition):**
 - Rectangle: width $2$, height $3$, area $6$.
-- Triangle: base $2$, height $1$, area $1$.
+- Triangle on $[6,8]$: base length $=8-6=2$, max height $=4-3=1$, area $=\dfrac{1}{2}(2)(1)=1$.
 - Two trapezoids on $[0,2]$ and $[2,4]$ with areas $9$ and $16$ respectively.
 - Total $=9+16+10+7=42$.
 
