@@ -2,6 +2,7 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const markdownIt = require("markdown-it");
 const mathProtect = require("./src/_includes/plugins/math-protect.js");
 const fs = require("fs");
+const path = require("path");
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
@@ -11,22 +12,26 @@ module.exports = function(eleventyConfig) {
     return collectionApi.getFilteredByGlob("src/lab/**/*.md");
   });
 
-  eleventyConfig.addFilter("mtimeISO", function(inputPath) {
+  function safeStat(p) {
     try {
-      const stat = fs.statSync(inputPath);
-      return stat.mtime.toISOString();
-    } catch (e) {
-      return "";
+      return fs.statSync(path.resolve(p));
+    } catch {
+      try {
+        return fs.statSync(p);
+      } catch {
+        return null;
+      }
     }
+  }
+
+  eleventyConfig.addFilter("mtimeISO", function(inputPath) {
+    const stat = safeStat(inputPath);
+    return stat ? stat.mtime.toISOString() : "";
   });
 
   eleventyConfig.addFilter("mtimeMs", function(inputPath) {
-    try {
-      const stat = fs.statSync(inputPath);
-      return stat.mtime.getTime();
-    } catch (e) {
-      return 0;
-    }
+    const stat = safeStat(inputPath);
+    return stat ? stat.mtime.getTime() : 0;
   });
 
   eleventyConfig.setLibrary("md", markdownIt({

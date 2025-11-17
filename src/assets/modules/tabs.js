@@ -29,7 +29,8 @@ export function renderTabs(state) {
 export function updateActiveTab(state) {
   const tabs = document.querySelectorAll('.tab');
   tabs.forEach(t => {
-    const slug = new URL(t.href).hash.split('=')[1];
+    const raw = new URL(t.href).hash.split('=')[1] || '';
+    const slug = decodeURIComponent(raw);
     t.classList.toggle('active', slug === state.active);
   });
 }
