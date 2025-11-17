@@ -20,6 +20,7 @@ Thumbs.db
 
 # Build output (keep generated site files tracked)
 # If you later use a separate build dir, add it here.
+_site/
 
 # Misc
 *.swp
