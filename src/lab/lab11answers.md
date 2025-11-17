@@ -1,7 +1,3 @@
-Of course! Here is the solution set with the requested formatting, including cancellation marks for simplifying fractions.
-
----
-
 # Lab 11 - Definite Integrals
 
 ### 1. $\int_{0}^{2} (x + 4) dx$
@@ -158,42 +154,58 @@ $$
 
 ### 6. Isaac's Claim
 
-**(a) Example where FTC is not efficient:**
+**(a) Provide an example of a function where the antiderivative is not possible, or at least extremely difficult, to calculate to show that the FTC is not always efficient.**
 
-A classic example is the Gaussian function, $f(x) = e^{-x^2}$.
-The integral $\int e^{-x^2} dx$ does not have an elementary antiderivative. ∴ The FTC cannot be used directly to find an exact value for $\int_{a}^{b} e^{-x^2} dx$. We must rely on numerical methods like Riemann sums.
+Isaac's claim is incorrect because the Fundamental Theorem of Calculus has conditions. Specifically, Part 2 of the FTC, $\int_{a}^{b} f(x)dx = F(b) - F(a)$, requires that $f$ be continuous on the interval $[a, b]$. If $f$ is not continuous, the theorem cannot be applied directly.
 
-**(b) Riemann Sums for $f(x) = e^{-x^2}$ on $[0, 2]$ with $n=8$:**
+Consider the step function:
+$$
+f(x) = \begin{cases} 0 & \text{if } x < 1 \\ 2 & \text{if } x \ge 1 \end{cases}
+$$
+Let's evaluate the integral on the interval $[0, 3]$.
 
-*   Interval: $[0, 2]$, $n=8$
-*   $\Delta x = \frac{2-0}{8} = 0.25$
-*   Grid points: $x_0=0, x_1=0.25, x_2=0.5, ..., x_8=2.0$
+This function has a jump discontinuity at $x=1$, which is within the interval $[0, 3]$. ∴ $f(x)$ is not continuous on $[0, 3]$. Because of this, there is no single elementary function $F(x)$ such that $F'(x) = f(x)$ for all $x \in [0, 3]$. Thus, the FTC cannot be used in one step. We must rely on geometric methods or Riemann sums.
+
+**(b) For that function and an appropriate subinterval of its domain, find the right Riemann sum and the left Riemann sum for $n = 8$, then estimate the area of the function on the subinterval.**
+
+*   Function: $f(x)$ as defined above.
+*   Interval: $[0, 3]$, $n=8$.
+*   $\Delta x = \frac{3-0}{8} = \frac{3}{8} = 0.375$.
+*   Grid points: $x_k = k \cdot \Delta x = \frac{3k}{8}$.
+    *   $x_0=0, x_1=0.375, x_2=0.75, x_3=1.125, ..., x_8=3$.
+*   The discontinuity is at $x=1$. We need to see which grid points are less than 1.
+    *   $x_0=0 < 1$
+    *   $x_1=0.375 < 1$
+    *   $x_2=0.75 < 1$
+    *   $x_3=1.125 > 1$.
+    *   So, $f(x_0), f(x_1), f(x_2)$ will be 0. All subsequent $f(x_k)$ will be 2.
 
 **Right Riemann Sum ($R_8$):**
 $$
 \begin{aligned}
-R_8 &= \sum_{k=1}^{8} f(x_k) \Delta x = \Delta x [f(0.25) + f(0.5) + ... + f(2.0)] \\
-&= 0.25 [e^{-(0.25)^2} + e^{-(0.5)^2} + e^{-(0.75)^2} + e^{-(1.0)^2} + e^{-(1.25)^2} + e^{-(1.5)^2} + e^{-(1.75)^2} + e^{-(2.0)^2}] \\
-&= 0.25 [0.9394 + 0.7788 + 0.5698 + 0.3679 + 0.2096 + 0.1054 + 0.0468 + 0.0183] \\
-&= 0.25 [3.0360] \approx 0.759
+R_8 &= \sum_{k=1}^{8} f(x_k) \Delta x = \Delta x [f(x_1) + f(x_2) + f(x_3) + f(x_4) + f(x_5) + f(x_6) + f(x_7) + f(x_8)] \\
+&= \frac{3}{8} [f(0.375) + f(0.75) + f(1.125) + f(1.5) + f(1.875) + f(2.25) + f(2.625) + f(3.0)] \\
+&= \frac{3}{8} [0 + 0 + 2 + 2 + 2 + 2 + 2 + 2] \\
+&= \frac{3}{8} [2 \times 6] = \frac{3}{8} [12] = \frac{36}{8} = \frac{9}{2} = 4.5
 \end{aligned}
 $$
 
 **Left Riemann Sum ($L_8$):**
 $$
 \begin{aligned}
-L_8 &= \sum_{k=0}^{7} f(x_k) \Delta x = \Delta x [f(0) + f(0.25) + ... + f(1.75)] \\
-&= 0.25 [e^{-(0)^2} + e^{-(0.25)^2} + e^{-(0.5)^2} + e^{-(0.75)^2} + e^{-(1.0)^2} + e^{-(1.25)^2} + e^{-(1.5)^2} + e^{-(1.75)^2}] \\
-&= 0.25 [1 + 0.9394 + 0.7788 + 0.5698 + 0.3679 + 0.2096 + 0.1054 + 0.0468] \\
-&= 0.25 [3.9177] \approx 0.979
+L_8 &= \sum_{k=0}^{7} f(x_k) \Delta x = \Delta x [f(x_0) + f(x_1) + f(x_2) + f(x_3) + f(x_4) + f(x_5) + f(x_6) + f(x_7)] \\
+&= \frac{3}{8} [f(0) + f(0.375) + f(0.75) + f(1.125) + f(1.5) + f(1.875) + f(2.25) + f(2.625)] \\
+&= \frac{3}{8} [0 + 0 + 0 + 2 + 2 + 2 + 2 + 2] \\
+&= \frac{3}{8} [2 \times 5] = \frac{3}{8} [10] = \frac{30}{8} = \frac{15}{4} = 3.75
 \end{aligned}
 $$
 
 **Area Estimate:**
-A good estimate is the average of the left and right sums (Trapezoidal Rule).
 $$
-\text{Area} \approx \frac{L_8 + R_8}{2} = \frac{0.979 + 0.759}{2} = \frac{1.738}{2} = 0.869
+\text{Area} \approx \frac{L_8 + R_8}{2} = \frac{3.75 + 4.5}{2} = \frac{8.25}{2} = 4.125
 $$
+
+*(For reference, the exact area is found by splitting the integral at the discontinuity: $\int_{0}^{1} 0 dx + \int_{1}^{3} 2 dx = 0 + [2x]_{1}^{3} = 2(3) - 2(1) = 4$.)*
 
 ---
 

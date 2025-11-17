@@ -1,4 +1,6 @@
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const markdownIt = require("markdown-it");
+const mathProtect = require("./src/_includes/plugins/math-protect.js");
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
@@ -7,6 +9,12 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addCollection("labs", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/lab/**/*.md");
   });
+
+  eleventyConfig.setLibrary("md", markdownIt({
+    html: true,
+    breaks: false,
+    linkify: true
+  }).use(mathProtect));
 
   return {
     dir: {

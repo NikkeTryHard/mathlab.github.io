@@ -7,7 +7,16 @@
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="stylesheet" href="https://unpkg.com/prismjs@1.29.0/themes/prism.min.css">
   <script>
-    window.MathJax = { tex: { inlineMath: [["$","$"],["\\(","\\)"]] }, svg: { fontCache: "global" } };
+    window.MathJax = {
+      loader: { load: ['[tex]/cancel'] },
+      tex: {
+        inlineMath: [["$","$"],["\\(","\\)"]],
+        displayMath: [["$$","$$"],["\\[","\\]"]],
+        processEscapes: true,
+        packages: { '[+]': ['cancel'] }
+      },
+      svg: { fontCache: 'global' }
+    };
   </script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
 </head>

@@ -70,8 +70,12 @@ function routeTo(slug) {
 }
 
 async function typesetMath() {
-  if (window.MathJax && window.MathJax.typesetPromise) {
-    await window.MathJax.typesetPromise();
+  try {
+    if (window.MathJax && window.MathJax.typesetPromise) {
+      await window.MathJax.typesetPromise();
+    }
+  } catch (e) {
+    console.warn('MathJax typeset failed', e);
   }
 }
 
