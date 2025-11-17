@@ -19,18 +19,15 @@ A fully static, responsive site generated from markdown files in `src/lab/`, wit
 - Open `http://localhost:8080/` and edit files under `src/`.
 
 ## Build for GitHub Pages
-- Run `npm run build` to generate the site into the repository root:
-  - `index.html`, `labs.json`, `assets/`, and `lab/<slug>.html` files
-- Commit and push to the `main` branch.
-- In GitHub, enable Pages for a user/organization site:
-  - Repository is named `<username>.github.io`
-  - Serve from the `main` branch, root
-- Wait for Pages to publish; your site is live at `https://<username>.github.io/`.
+- Run `npm run build`; output is generated under `_site/`.
+- The GitHub Pages workflow uploads `_site/` automatically on push to `main`.
+- For a user site repo named `<username>.github.io`, your site publishes to `https://<username>.github.io/` after the workflow completes.
 
 ## Dependencies
 - Node.js (LTS)
 - Eleventy (`@11ty/eleventy`)
 - Eleventy Prism plugin (`@11ty/eleventy-plugin-syntaxhighlight`)
+- Markdown-It (used as Eleventy markdown engine)
 - MathJax v3 via CDN (no install required)
 
 ## Error Handling

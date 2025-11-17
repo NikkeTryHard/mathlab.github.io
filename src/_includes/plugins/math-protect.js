@@ -1,16 +1,22 @@
 module.exports = function mathProtect(md) {
   function scanDelims(str, pos) {
     let ch = str.charCodeAt(pos);
-    if (ch !== 0x24 /* $ */) return null;
+    if (ch !== 0x24 /* $ */) {
+      return null;
+    }
     let count = 1;
-    while (str.charCodeAt(pos + count) === 0x24) count++;
+    while (str.charCodeAt(pos + count) === 0x24) {
+      count++;
+    }
     return count; // 1 for $, 2 for $$
   }
 
   function parseInlineMath(state, silent) {
     const start = state.pos;
     const delims = scanDelims(state.src, start);
-    if (!delims || delims > 2) return false;
+    if (!delims || delims > 2) {
+      return false;
+    }
     const marker = delims; // 1 or 2
     const open = marker === 2 ? '$$' : '$';
     const close = open;

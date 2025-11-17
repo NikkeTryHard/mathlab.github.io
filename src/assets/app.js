@@ -3,13 +3,15 @@ const state = { labs: [], active: null };
 async function loadLabs() {
   try {
     const res = await fetch('labs.json', { cache: 'no-store' });
-    if (!res.ok) throw new Error('labs.json not found');
+    if (!res.ok) {
+      throw new Error('labs.json not found');
+    }
     state.labs = await res.json();
     renderTabs();
     const initial = getInitialSlug();
     await showLab(initial);
     initBackToTop();
-  } catch (e) {
+  } catch {
     showError('Unable to load lab list.');
   }
 }
@@ -35,17 +37,25 @@ function getInitialSlug() {
   const saved = localStorage.getItem('activeLab');
   const requested = hash.get('lab');
   const exists = slug => state.labs.some(l => l.slug === slug);
-  if (requested && exists(requested)) return requested;
-  if (saved && exists(saved)) return saved;
+  if (requested && exists(requested)) {
+    return requested;
+  }
+  if (saved && exists(saved)) {
+    return saved;
+  }
   return state.labs[0]?.slug;
 }
 
 async function showLab(slug) {
-  if (!slug) return;
+  if (!slug) {
+    return;
+  }
   try {
     const lab = state.labs.find(l => l.slug === slug);
     const res = await fetch(lab.href, { cache: 'no-store' });
-    if (!res.ok) throw new Error('lab not found');
+    if (!res.ok) {
+      throw new Error('lab not found');
+    }
     const html = await res.text();
     const container = document.getElementById('content-container');
     container.innerHTML = html;
@@ -54,7 +64,7 @@ async function showLab(slug) {
     updateActiveTab();
     await typesetMath();
     maybeShowBackToTop();
-  } catch (e) {
+  } catch {
     showError('Unable to load lab content.');
   }
 }
@@ -96,17 +106,31 @@ window.addEventListener('DOMContentLoaded', loadLabs);
 
 function initBackToTop() {
   const btn = document.getElementById('backToTop');
-  if (!btn) return;
+  if (!btn) {
+    return;
+  }
   btn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
-  window.addEventListener('scroll', maybeShowBackToTop);
+  let scheduled = false;
+  window.addEventListener('scroll', () => {
+    if (scheduled) {
+      return;
+    }
+    scheduled = true;
+    requestAnimationFrame(() => {
+      maybeShowBackToTop();
+      scheduled = false;
+    });
+  }, { passive: true });
   maybeShowBackToTop();
 }
 
 function maybeShowBackToTop() {
   const btn = document.getElementById('backToTop');
-  if (!btn) return;
+  if (!btn) {
+    return;
+  }
   const scrolled = document.documentElement.scrollTop || document.body.scrollTop;
   btn.classList.toggle('show', scrolled > 300);
 }
