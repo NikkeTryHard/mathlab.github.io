@@ -8,6 +8,7 @@ async function loadLabs() {
     renderTabs();
     const initial = getInitialSlug();
     await showLab(initial);
+    initBackToTop();
   } catch (e) {
     showError('Unable to load lab list.');
   }
@@ -52,6 +53,7 @@ async function showLab(slug) {
     localStorage.setItem('activeLab', slug);
     updateActiveTab();
     await typesetMath();
+    maybeShowBackToTop();
   } catch (e) {
     showError('Unable to load lab content.');
   }
@@ -91,3 +93,20 @@ window.addEventListener('hashchange', () => {
 });
 
 window.addEventListener('DOMContentLoaded', loadLabs);
+
+function initBackToTop() {
+  const btn = document.getElementById('backToTop');
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  window.addEventListener('scroll', maybeShowBackToTop);
+  maybeShowBackToTop();
+}
+
+function maybeShowBackToTop() {
+  const btn = document.getElementById('backToTop');
+  if (!btn) return;
+  const scrolled = document.documentElement.scrollTop || document.body.scrollTop;
+  btn.classList.toggle('show', scrolled > 300);
+}
