@@ -5,8 +5,8 @@
   "scripts": {
     "build": "eleventy",
     "serve": "eleventy --serve --port=8080",
-    "lint": "eslint src/assets/*.js src/_includes/plugins/*.js",
-    "lint:fix": "eslint --fix src/assets/*.js src/_includes/plugins/*.js"
+    "lint": "eslint src/assets/**/*.js src/_includes/plugins/*.js",
+    "lint:fix": "eslint --fix src/assets/**/*.js src/_includes/plugins/*.js"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
