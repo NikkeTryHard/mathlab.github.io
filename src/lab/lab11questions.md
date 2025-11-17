@@ -31,6 +31,7 @@ $\sum_{k=1}^{n} k^3 = \left(\frac{n(n+1)}{2}\right)^2$
 6. Isaac claims that since he knows how to use the Fundamental Theorem of Calculus to find the integral of functions he does not need to know how to take a Riemann sum.
 
 (a) Provide an example of a function where the antiderivative is not possible, or at least extremely difficult, to calculate to show that the FTC is not always efficient.
+
 (b) For that function and an appropriate subinterval of its domain, find the right Riemann sum and the left Riemann sum for $n = 8$, then estimate the area of the function on the subinterval.
 
 ---
@@ -40,23 +41,29 @@ $\sum_{k=1}^{n} k^3 = \left(\frac{n(n+1)}{2}\right)^2$
 1. Given the following graph of a function $f(x)$, Stephen attempted to approximate the area under the curve using four equal sized subintervals ($n = 4$) with a right Riemann sum. Note that the function is not defined at the following points: $x = 0, 2, 4, 6, 8$.
 
 (a) What difficulty, if any, will Stephen encounter when attempting to calculate the Riemann sum?
+
 (b) List at least two methods Stephen could use to better approximate the area under the curve.
+
 (c) Using the methods listed in (b) find the approximations of the area under the curve. Are these overestimates or underestimates?
+
 (d) Can an exact area bounded by the function and the x-axis be found? Explain your answer.
 
-*[Image of a graph with points plotted and connected by line segments. The points are (1, 5), (2, 4), (2, 7), (4, 9), (4.5, 5), (6, 5), (6.3, 3), (7, 4), (8, 3).]*
+*[Line segment from (0,5) to (2,4) with open endpoints; line segment from (2,7) to (4,9) with open endpoints; line segment from (4,5) to (6,5) with open endpoints; polyline from (6,3) to (7,4) to (8,3) with open endpoints at (6,3) and (8,3) and a closed, sharp corner at (7,4)]*
 
 2. True or False. For exercises (a)-(d), if the statement is True, explain or show why. If False, explain why it is not true and/or give a counterexample. Note: $a, b, c, d$ and $n$ are constants, $f, g$ are functions and $x$ is the independent variable.
 
 (a) If $f$ is a constant function on the interval $[a, b]$, then the right and left Riemann sums give the exact value of $\int_{a}^{b} f(x)dx$, for any positive integer $n$.
+
 (b) If $f$ is a linear function on the interval $[c, d]$, then a midpoint Riemann sum gives the exact value of $\int_{c}^{d} f(x)dx$, for any positive integer $n$.
-(c) $\int_{0}^{2\pi} \sin(ax)dx = \int_{0}^{2\pi} \cos(ax)dx = 0$
+
+(c) $\int_{0}^{2\pi/c} \sin(ax)dx = \int_{0}^{2\pi/c} \cos(ax)dx = 0$
+
 (d) Property 4 of Table 5.4 (found on page 360 of your textbook) implies that $\int_{a}^{b} xf(x)dx = x\int_{a}^{b} f(x)dx$.
 
 ---
 
 ### Substitution Rule Lab Preparation
 
-1. Joan tried integrating the indefinite integral $\int \sec^3\theta \tan\theta d\theta$ using the substitution rule, but she decided it was impossible. For example, when she tried substituting $u = \sec\theta$, she found that $\frac{du}{d\theta} = \sec\theta \tan\theta$ and therefore $du = \sec\theta \tan\theta d\theta$. "That leaves an extra $\sec^2\theta$!" she lamented. Help Joan rewrite the integrand and use $u = \sec\theta$ to integrate $\int \sec^3\theta \tan\theta d\theta$.
+1. Joan tried integrating the indefinite integral $\int \sec^3\theta \tan\theta d\theta$ using the substitution rule, but she decided it was impossible. For example, when she tried substituting $u = \sec\theta$, she found that $\frac{du}{d\theta} = \sec\theta \tan\theta$ and therefore $du = \sec\theta \tan\theta d\theta$. "That leaves an extra $\sec\theta$!" she lamented. Help Joan rewrite the integrand and use $u = \sec\theta$ to integrate $\int \sec^3\theta \tan\theta d\theta$.
 
 2. Joaquin tried integrating the definite integral $\int_{2}^{7} \frac{x}{\sqrt{x+2}}dx$ using the substitution rule, but decided it was impossible. For example, when he tried substituting $u = x + 2$, he found that $\frac{du}{dx} = 1$ and therefore $du = dx$. "But what about the $x$ in the numerator? How to substitute for that?" he moaned. Help Joaquin write that $x$ in terms of $u$ and evaluate the definite integral.
