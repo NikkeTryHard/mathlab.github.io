@@ -12,7 +12,7 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.setLibrary("md", markdownIt({
     html: true,
-    breaks: false,
+    breaks: true,
     linkify: true
   }).use(mathProtect));
 

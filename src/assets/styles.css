@@ -55,3 +55,4 @@ article.lab-content pre{background:#0b1021;color:#e5e7eb;padding:12px;border-rad
 article.lab-content code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace}
 article.lab-content table{border-collapse:collapse}
 article.lab-content th,article.lab-content td{border:1px solid var(--border);padding:6px 8px}
+article.lab-content p{white-space:pre-line}
