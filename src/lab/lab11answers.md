@@ -125,7 +125,7 @@ $$
 *   Let $f(x) = 4x^2-2$ on $[a, b] = [-3, -1]$.
 *   $\Delta x = \frac{-1 - (-3)}{n} = \frac{2}{n}$
 *   $x_k = a + k\Delta x = -3 + k\left(\frac{2}{n}\right) = -3 + \frac{2k}{n}$.
-*   $f(x_k) = 4\left(-3 + \frac{2k}{n}\right)^2 - 2 = 34 - \frac{48k}{n} + \frac{16k^2}{n^2}$.
+*   $f(x_k) = \begin{aligned}[t] &4\left(-3 + \frac{2k}{n}\right)^2 - 2 \\ &= 4\left((-3)^2 + 2(-3)\left(\frac{2k}{n}\right) + \left(\frac{2k}{n}\right)^2\right) - 2 \\ &= 4\left(9 - \frac{12k}{n} + \frac{4k^2}{n^2}\right) - 2 \\ &= 36 - \frac{48k}{n} + \frac{16k^2}{n^2} - 2 \\ &= 34 - \frac{48k}{n} + \frac{16k^2}{n^2}\end{aligned}$
 
 $$
 \begin{aligned}
