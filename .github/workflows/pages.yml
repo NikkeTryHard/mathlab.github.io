@@ -28,17 +28,10 @@ jobs:
         run: npm ci
       - name: Build with Eleventy
         run: npx eleventy
-      - name: Prepare dist
-        run: |
-          mkdir -p dist
-          cp index.html dist/
-          cp labs.json dist/
-          cp -r lab dist/
-          cp -r assets dist/
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: _site
 
   deploy:
     environment:
